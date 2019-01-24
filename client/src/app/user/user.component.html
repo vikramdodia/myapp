@@ -1,0 +1,39 @@
+<form>
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" [(ngModel)]="details.name">
+  </div>
+  <div class="form-group">
+    <label for="phone">Phone:</label>
+    <input type="text" class="form-control" id="phone" placeholder="Enter phone" name="phone" [(ngModel)]="details.phone">
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" [(ngModel)]="details.email" >
+  </div>
+  <button type="submit" class="btn btn-default" (click)='addData(details)'>Submit</button>
+</form>
+
+<br>
+<table class="table table-bordered table-sm col-md-5">
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>email</th>
+      <th>phone</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let u of users; let i = index">
+      <td>{{u.name}}</td>
+      <td>{{u.email}}</td>
+      <td>{{u.phone}}</td>
+      <td>
+        <button class="btn btn-link" (click)="dataroute(u._id)" >Update</button>
+        <button fclass="btn btn-link" (click)="deleteUser(u._id,i)">Delete</button>
+      </td>
+    </tr>
+   
+  </tbody>
+</table>
